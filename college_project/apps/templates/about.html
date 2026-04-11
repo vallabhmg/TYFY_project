@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | College Portal</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+ <nav class="navbar">
+    <div class="logo">Vikas Education DL</div>
+    
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+
+    <ul class="nav-links" id="nav-list">
+        <li><a href="{% url 'landing'%}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'students'%}">Students</a></li>
+        <li><a href="{% url 'events' %}">Events</a></li>
+        <li><a href="{% url 'landing' %}#placements">Placements</a></li>
+        <li><a href="{% url 'careers' %}">Careers</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+        <li><a href="{% url 'lms_login' %}" target="_blank">LMS Login</a></li>
+        <li><a href="{% url 'registration' %}" class="btn-admission">Admission</a></li>
+    </ul>
+</nav>
+
+    <section class="about-section">
+        <div class="about-container">
+        <h1>About Our College Organization</h1>
+        <p class="about-text">
+            Welcome to <strong>Distance Learning Eduction At Vikas Vidyalaya</strong>.Vikas College of Arts, Commerce & Science With an objective of holding light to those in darkness and extending support to helpless and guide those who have lost direction, our kind hearted, socially concerned and dedicated reformers laid down the foundation of Vidya Vikas Education Society in 1962.College is a reputed institution that offers flexible distance learning programs for students and working professionals. It provides quality education through online classes, study materials, and virtual support without the need for physical attendance.
+            
+        </p>
+        {% load static %} <div class="about-image-wrapper">
+    <img src="{% static 'images/vikascampus.jfif' %}" alt="College Campus">
+</div>
+</div>
+    </section>
+{% include 'footer.html' %}
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

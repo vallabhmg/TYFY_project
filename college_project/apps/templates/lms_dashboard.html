@@ -1,0 +1,125 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS Dashboard | Vikas Education</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body class="dashboard-body">   
+     <div class="mobile-nav">
+         <h3 style="margin:0; color:white; font-size:1.1rem;">Vikas Education LMS</h3>
+        <div id="menu-toggle">☰</div>
+    </div>
+ <div id="sidebar" class="sidebar-logo">
+        <div class="sidebar-logo">
+            <h2>Vikas Education LMS</h2>
+        </div>
+        <ul class="menu-list">
+            <li onclick="switchTab('dashboard')" style="padding: 15px 25px; cursor: pointer; transition: 0.3s;" class="menu-item">
+                🏠 Dashboard
+            </li>
+            
+            <li onclick="switchTab('digital-id')"  style="padding: 15px 25px; cursor: pointer; transition: 0.3s;" class="menu-item">
+                🆔 Digital ID card
+            </li>
+
+<li onclick="toggleStudyMenu()" style="padding: 15px; cursor: pointer; color: white; display: flex; justify-content: space-between; align-items: center;">
+    <span>📚 Study Material</span>
+    <span id="study-arrow">▼</span>
+</li>
+
+<ul id="study-dropdown" style="display: none; list-style: none; padding-left: 30px; background: #34495e;">
+    <li onclick="switchTab('ebook')" style="padding: 10px; cursor: pointer; color: #bdc3c7; font-size: 0.9rem; border-bottom: 1px solid #2c3e50;" class="menu-item">
+        📖 E-book
+    </li>
+    <li onclick="switchTab('question-papers')" style="padding: 10px; cursor: pointer; color: #bdc3c7; font-size: 0.9rem;" class="menu-item">
+        ❓ Question Papers
+    </li>
+</ul>  
+            <li onclick="switchTab('result')" style="padding: 15px 25px; cursor: pointer; color: white;" class="menu-item">
+                📊 Result
+            </li>
+              <li onclick="switchTab('fees')" style="padding: 15px 25px; cursor: pointer; color: white;" class="menu-item">
+        💳 Fees Payment
+    </li>
+
+            <li>
+        <div onclick="toggleSettings()" style="padding: 15px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #444;">
+            <span>⚙️ Setting / Log Out</span>
+            <span id="setting-arrow">▼</span>
+        </div>
+        
+        <ul id="settings-dropdown" style="display: none; list-style: none; padding: 0; background: #2c3e50;">
+            <li onclick="switchTab('change-password')" style="padding: 12px 40px; cursor: pointer; font-size: 0.9rem; border-bottom: 1px solid #34495e;" class="menu-item">
+                🔑 Change Password
+            </li>
+        <li onclick="logoutUser()" style="padding: 12px 40px; cursor: pointer; font-size: 0.9rem; color: #ff7675;" class="menu-item">
+                🚪 Log Out
+        </li>
+        </ul>
+    </li>
+
+        </ul>
+        </div>
+    </div>
+
+
+
+    <div id="main-content-area">
+        
+        <div style="background: white; padding: 20px 40px; border-bottom: 1px solid #ddd; display: flex; justify-content: space-between; align-items: center;">
+            <h2 style="margin: 0; color: #2c3e50;">Welcome, ABC (BCA Student)</h2>
+            <button onclick="logoutUser()" class="btn-logout">
+        Logout
+    </button>
+        </div>
+
+        <div style="flex: 1; padding: 30px; overflow-y: auto;">
+            
+            <div id="section-dashboard">
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px;">
+                    <div style="background: white; height: 400px; border-radius: 10px; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; color: #999;">
+                        [Random Pictures / College Banners]
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 10px; border: 1px solid #ddd; text-align: center;">
+                        <h3>Attendance</h3>
+                        <h1 style="font-size: 4rem; color: #2ecc71; margin: 10px 0;">85%</h1>
+                    </div>
+                </div>
+            </div>
+<!--Lms Dashboard Features Sections Code-->
+            <div id="section-digital-id" style="display: none;">
+                {% include 'digital_id.html' %}
+            </div>
+
+            <div id="section-result" style="display: none;">
+                {% include 'result_page.html' %}
+            </div>
+
+            <div id="section-change-password" style="display: none;">
+               {% include 'change_password.html' %}
+            </div>
+
+            <div id="section-fees" style="display: none;">
+               {% include 'fees_page.html' %}
+            </div>
+            
+            <div id="section-ebook" style="display: none;">
+              {% include 'ebook.html' %}
+            </div>
+
+            <div id="section-question-papers" style="display: none;">
+              {% include 'question_papers.html' %}
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html> 

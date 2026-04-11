@@ -1,0 +1,75 @@
+<!-- {% load static %}-->
+
+
+<!-- <div id="id-portal" style="display: flex; justify-content: center; align-items: center; min-height: 500px;">
+    
+    <div id="id-login-box" style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 350px; text-align: center; border-top: 5px solid #3498db;">
+        <h3 style="margin-bottom: 20px; color: #2c3e50;">ID Card Verification</h3>
+        
+        <input type="text" id="idNumInput" placeholder="Enter College ID (BCA-101)" 
+               style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box;">
+        
+        <input type="password" id="idPassInput" placeholder="Enter Security Password" 
+               style="width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box;">
+        
+        <button onclick="verifyAndShowID()" style="width: 100%; background: #3498db; color: white; border: none; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer;">
+            Verify & Generate
+        </button>
+    </div>
+
+    <div id="final-id-card" style="display: none;">
+        <div style="width: 320px; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.2); border: 1px solid #eee;">
+            <div style="background: #2c3e50; color: white; padding: 15px; text-align: center;">
+                <h4 style="margin: 0;">VIKAS EDUCATION</h4>
+                <p style="margin: 0; font-size: 0.7rem;">DIGITAL IDENTITY CARD</p>
+            </div>
+            <div style="padding: 20px; text-align: center;">
+                <div style="width: 90px; height: 90px; background: #eee; border-radius: 50%; margin: 0 auto 10px; border: 2px solid #3498db; display: flex; align-items: center; justify-content: center; font-size: 2rem;">👤</div>
+                <h3 id="display-id-name" style="margin: 5px 0;">ABC STUDENT</h3>
+                <p style="color: #3498db; font-weight: bold; margin: 0;">BCA DEPARTMENT</p>
+                <hr style="margin: 15px 0; border: 0; border-top: 1px dashed #ccc;">
+                <p style="text-align: left; font-size: 0.9rem;"><b>ID NO:</b> <span id="display-id-val" style="color: #e74c3c;"></span></p>
+                <p style="text-align: left; font-size: 0.9rem;"><b>VALIDITY:</b> 2024-2027</p>
+            </div>
+            <div style="background: #3498db; color: white; padding: 5px; text-align: center; font-size: 0.7rem;">Verified Digital Copy</div>
+        </div>
+        <center><button onclick="resetIdPortal()" style="margin-top: 15px; background: none; border: none; color: #3498db; cursor: pointer;">Generate Another</button></center>
+    </div>
+</div> -->
+
+
+<div id="id-portal" style="display: flex; justify-content: center; align-items: center; min-height: 500px;">
+    
+    <div id="id-login-box" style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 350px; text-align: center; border-top: 5px solid #3498db;">
+        <h3 style="margin-bottom: 20px; color: #2c3e50;">ID Card Verification</h3>
+        
+        <input type="text" id="idNumInput" placeholder="Enter College ID (BCA-101)" 
+               style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box;">
+        
+        <input type="password" id="idPassInput" placeholder="Enter Security Password" 
+               style="width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box;">
+        
+        <button onclick="verifyAndShowID()" class="btn-verify">
+            Verify & Generate
+        </button>
+    </div>
+
+    <div id="final-id-card" style="display: none;">
+        <div style="width: 320px; max-width: 100%; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.2); border: 1px solid #eee; margin: 0 auto;">
+            <div style="background: #2c3e50; color: white; padding: 15px; text-align: center;">
+                <h4 style="margin: 0;">VIKAS EDUCATION</h4>
+                <p style="margin: 0; font-size: 0.7rem;">DIGITAL IDENTITY CARD</p>
+            </div>
+            <div style="padding: 20px; text-align: center;">
+                <div style="width: 90px; height: 90px; background: #eee; border-radius: 50%; margin: 0 auto 10px; border: 2px solid #3498db; display: flex; align-items: center; justify-content: center; font-size: 2rem;">👤</div>
+                <h3 id="display-id-name" style="margin: 5px 0;">ABC STUDENT</h3>
+                <p style="color: #3498db; font-weight: bold; margin: 0;">BCA DEPARTMENT</p>
+                <hr style="margin: 15px 0; border: 0; border-top: 1px dashed #ccc;">
+                <p style="text-align: left; font-size: 0.9rem;"><b>ID NO:</b> <span id="display-id-val" style="color: #e74c3c;"></span></p>
+                <p style="text-align: left; font-size: 0.9rem;"><b>VALIDITY:</b> 2024-2027</p>
+            </div>
+            <div style="background: #3498db; color: white; padding: 5px; text-align: center; font-size: 0.7rem;">Verified Digital Copy</div>
+        </div>
+        <center><button onclick="resetIdPortal()" style="margin-top: 15px; background: none; border: none; color: #3498db; cursor: pointer; font-weight: bold;">Generate Another</button></center>
+    </div>
+</div>

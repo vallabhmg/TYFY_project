@@ -1,0 +1,50 @@
+<div class="fees-container">
+    <h2 style="text-align: center; color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Student Admission Form</h2>
+
+    <div class="fees-layout">
+        <div class="form-side">
+            
+            <h4 class="form-header">Student Details</h4>
+            <div class="grid-2-col">
+                <input type="text" placeholder="Name of Student" class="admission-input" style="grid-column: span 2;">
+                <input type="text" placeholder="Address" class="admission-input" style="grid-column: span 2;">
+                <input type="text" placeholder="Mobile No." class="admission-input">
+                <input type="text" placeholder="Parent's Mobile No." class="admission-input">
+                <input type="email" placeholder="Email ID" class="admission-input">
+                <input type="text" placeholder="Adhaar Card No." class="admission-input">
+            </div>
+
+            <h4 class="form-header">Document Details (Upload)</h4>
+            <div class="grid-2-col">
+                <div><label>Photo:</label> <input type="file" class="admission-input"></div>
+                <div><label>Signature:</label> <input type="file" class="admission-input"></div>
+                <div><label>10th Marksheet:</label> <input type="file" class="admission-input"></div>
+                <div><label>12th Marksheet:</label> <input type="file" class="admission-input"></div>
+            </div>
+
+            <h4 class="form-header payment-header">Payment Details</h4>
+            <div style="padding: 15px;">
+                <p style="margin-bottom: 15px; font-weight: 600;">Select Mode: 
+                    <label style="margin-right: 10px;"><input type="radio" name="p"> Online</label> 
+                    <label><input type="radio" name="p"> Offline</label>
+                </p>
+                <div class="pay-buttons" style="display: flex; gap: 10px;">
+                    <button onclick="processPayment('University')" class="btn-pay" style="background: #8e44ad;">Pay University Fees (₹2000)</button>
+                    <button onclick="processPayment('Tuition')" class="btn-pay" style="background: #2980b9;">Pay Tuition Fees (₹5000)</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="fees-card">
+            <h3 style="margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px; color: #34495e;">Fees Structure</h3>
+            <div style="margin-top: 15px; font-size: 1rem;">
+                <p style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span>Tuition Fee:</span> <b>₹5000</b></p>
+                <p style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span>Exam Fee:</span> <b>₹2000</b></p>
+                <p style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span>Library Fee:</span> <b>₹500</b></p>
+                <hr style="border: 0; border-top: 1px solid #ddd; margin: 15px 0;">
+                <h2 style="display: flex; justify-content: space-between; color: #e74c3c;"><span>Total:</span> <span>₹7500</span></h2>
+            </div>
+            <p style="font-size: 0.8rem; color: #888; margin-top: 15px; text-align: center;">* GST might be applicable on online payments.</p>
+        </div>
+    </div>
+</div>

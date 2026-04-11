@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events & Seminars | Vikas Education DL</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+
+<nav class="navbar">
+    <div class="logo">Vikas Education DL</div>
+    
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+
+    <ul class="nav-links" id="nav-list">
+        <li><a href="{% url 'landing'%}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'students'%}">Students</a></li>
+        <li><a href="{% url 'events' %}">Events</a></li>
+        <li><a href="{% url 'landing' %}#placements">Placements</a></li>
+        <li><a href="{% url 'careers' %}">Careers</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+        <li><a href="{% url 'lms_login' %}" target="_blank">LMS Login</a></li>
+        <li><a href="{% url 'registration' %}" class="btn-admission">Admission</a></li>
+    </ul>
+</nav>
+
+
+    <section class="events-section">
+        <div class="container">
+        <h2 class="section-title">Upcoming Events & Seminars</h2>
+        
+        <div class="event-list">
+            <div class="event-row">
+                <div class="event-date blue-bg">
+                    <span class="day">15</span>
+                    <span class="month">OCT</span>
+                </div>
+                <div class="event-info">
+                    <h3>AI & Future Tech Seminar</h3>
+                    <p class="meta">Time: 10:00 AM | Venue: Main Auditorium</p>
+                    <p class="speaker">Guest Speaker: Dr. Satish Kumar (Tech Guru)</p>
+                </div>
+            </div>
+
+            <div class="event-row">
+                <div class="event-date red-bg">
+                    <span class="day">22</span>
+                    <span class="month">July</span>
+                </div>
+                <div class="event-info">
+                    <h3>Annual Sports Meet 2026</h3>
+                    <p class="meta">Time: 08:00 AM | Venue: College Ground</p>
+                    <p class="details">Join us for a day filled with energy and sportsmanship.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <hr class="separator">
+
+    <section class="past-events">
+        <div class="container">
+        <h2 class="section-title">Past Events Memories</h2>
+        <div class="memory-grid">
+            
+            <div class="memory-card">
+                <div class="img-wrapper">
+                <img src="{% static 'images/imgevent1.jpg' %}" alt="Cultural Night">
+                </div>
+                <h4>Garab Event</h4>
+            </div>
+
+            <div class="memory-card">
+                <div class="img-wrapper">
+                <img src="{% static 'images/imgevent2.jpg' %}" alt="Sport Day">
+                </div>
+                <h4>sport Day</h4>
+            </div>
+
+            <div class="memory-card">
+                <div class="img-wrapper">
+                <img src="{% static 'images/imgevent3.jpg' %}" alt="Tech Fest">
+                </div>
+                <h4>Inter-College Tech Fest</h4>
+            </div>
+            </div>
+        </div>
+    </section>
+{% include 'footer.html' %}
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

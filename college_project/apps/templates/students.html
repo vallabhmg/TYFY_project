@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Students | Vikas Education DL</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+<nav class="navbar">
+    <div class="logo">Vikas Education DL</div>
+    
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+
+    <ul class="nav-links" id="nav-list">
+        <li><a href="{% url 'landing'%}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'students'%}">Students</a></li>
+        <li><a href="{% url 'events' %}">Events</a></li>
+        <li><a href="{% url 'landing' %}#placements">Placements</a></li>
+        <li><a href="{% url 'careers' %}">Careers</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+        <li><a href="{% url 'lms_login' %}" target="_blank">LMS Login</a></li>
+        <li><a href="{% url 'registration' %}" class="btn-admission">Admission</a></li>
+    </ul>
+</nav>
+
+
+    <section class="student-header">
+        <div class="container">
+        <h1>Our Academic Achievers</h1>
+        <p>(A Little Progress Each Day Adds Up the Big Results)</p>
+    </div>
+    </section>
+
+    <section class="student-grid">
+        
+        <div class="student-card">
+            <div class="student-img-container">
+            <img src="{% static 'images/imgboy2.jfif' %}" alt="Student 1">
+            </div>
+            <div class="info">
+                <h3>Souvick Guria</h3>
+                <p class="role">B.Sc (Computer Application) - 1st Year</p>
+                <div class="score">Score: 98.5%</div>
+                <p class="desc">Year 2024-2025</p>
+            </div>
+        </div>
+
+        <div class="student-card">
+            <div class="student-img-container">
+            <img src="{% static 'images/imgboy2.jfif' %}" alt="Student 2">
+            </div>
+            <div class="info">
+                <h3>Kalpana Verma</h3>
+                <p class="role">BCA - Final Year</p>
+                <div class="score">Score: 96.2%</div>
+                <p class="desc">Year 2026-2027</p>
+            </div>
+        </div>
+
+        <div class="student-card">
+          <div class="student-img-container">  
+            <img src="{% static 'images/imgboy2.jfif' %}" alt="Student 3">
+            </div>
+            <div class="info">
+                <h3>Yash Gawade</h3>
+                <p class="role">BBA - 1st Year</p>
+                <div class="score">Score: 94.8%</div>
+                <p class="desc">Year 2020-2021</p>
+            </div>
+        </div>
+
+    </section>
+{% include 'footer.html' %}
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

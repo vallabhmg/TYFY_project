@@ -1,0 +1,191 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikas Education DLC | Welcome</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Vikas Education DL</div>
+    
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+
+    <ul class="nav-links" id="nav-list">
+        <li><a href="{% url 'landing'%}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'students'%}">Students</a></li>
+        <li><a href="{% url 'events' %}">Events</a></li>
+        <li><a href="{% url 'landing' %}#placements">Placements</a></li>
+        <li><a href="{% url 'careers' %}">Careers</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+        <li><a href="{% url 'lms_login' %}" target="_blank">LMS Login</a></li>
+        <li><a href="{% url 'registration' %}" class="btn-admission">Admission</a></li>
+    </ul>
+</nav>
+
+<div class="mini-announcement-bar">
+    <span class="label">LATEST:</span>
+    <div class="scrolling-text">
+        <p class="glowing-text">✨ Admissions for 2026-27 are now OPEN! Apply before 30th April. ✨</p>
+    </div>
+</div>
+
+    <header class="hero">
+    
+    <div class="hero-container">
+        <div class="hero-content">
+        <h1>Empowering Minds,<br>Shaping Futures</h1>
+        <p>Join the top-ranked institution for excellence in education and innovation.</p>
+        <div class="hero-buttons">
+            <a href="#explore" class="btn-primary">Explore Courses</a>
+<a href="{% url 'lms_login' %}" target="_blank" class="btn-secondary">
+        Student Login
+    </a>
+        </div>
+    </div>
+
+    <div class="career-mini-box">
+        
+        <h3>🚀 Career News</h3>
+        
+        <div class="career-items">
+            <div class="career-item">
+                <b>HelpDesk</b>
+                <p>Stipend: ₹15k/mo</p>
+                <a href="{% url 'careers' %}">Apply →</a>
+            </div>
+
+            <div class="career-item">
+                <b>Assistant Professor For BCA</b>
+                <p>Date: 15th April</p>
+                <a href="{% url 'careers' %}">Details →</a>
+            </div>
+
+            <div class="career-item">
+                <b>Lab Assistant</b>
+                <p>Full-time Job</p>
+                <a href="{% url 'careers' %}">Details →</a>
+            </div>
+        </div>
+
+        <p class="career-footer">Available Opportunities</p>
+    </div>
+</div>
+</header>
+
+    <section class="features" id="explore">
+        <div class="feature-card">
+            <h3>Quality Education</h3>
+            <p>Expert faculty and industry-aligned curriculum.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Top Placements</h3>
+            <p>90% placement record in leading MNCs.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Modern Campus</h3>
+            <p>High-tech labs and digital library facilities.</p>
+        </div>
+    </section>
+
+    <section id="courses" style="padding: 80px 10%; background: #ffffff; text-align: center;">
+    <div style="margin-bottom: 50px;">
+        <span style="background: #e74c3c; color: white; padding: 5px 20px; font-weight: bold; border-radius: 50px; font-size: 0.75rem; letter-spacing: 1px;">OUR DEPARTMENTS</span>
+        <h2 style="font-size: 2.8rem; color: #1a1a1a; margin-top: 15px; font-family: 'Poppins', sans-serif;">Top programs</h2>
+        <div style="width: 80px; height: 4px; background: #3498db; margin: 15px auto; border-radius: 2px;"></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+        
+        <div class="course-card">
+            <div>💼</div>
+            <h3>BBA</h3>
+            <p>Master the art of business management and administration with industry-aligned curriculum.</p>
+            
+            <ul>
+                <li>✅ Duration: 3 Years</li>
+                <li>✅ Mode:Regular</li>
+            </ul>
+
+            <div>
+                <span>Management</span>
+            <a href="#">View Syllabus</a>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <div>💻</div>
+            <h3>BCA</h3>
+            <p>Dive deep into software development, coding, and modern computer applications.</p>
+            
+            <ul>
+                <li>✅ Duration: 3 Years</li>
+                <li>✅ Mode: Online/Regular</li>
+            </ul>
+
+            <div>
+                <span>TECHNOLOGY</span>
+                <a href="#">View Syllabus</a>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <div>⚙️</div>
+            <h3>B.Sc (Computer Application)</h3>
+            <p>Technical excellence in engineering with focus on AI, ML, and Data Science.</p>
+            
+            <ul>
+                <li>✅ Duration: 4 Years</li>
+                <li>✅ Mode: Online/Regular</li>
+            </ul>
+
+            <div>
+                <span>ENGINEERING</span>
+                <a href="#">View Syllabus</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+    <section id="placements">
+    <h2>Our Top Recruiters</h2>
+    <p>Our students are placed in world-class companies.</p>
+
+    <div class="company-grid">
+        
+        <div class="company-logo">
+            <img src="{% static 'images/imgplacement1.png' %}" alt="Google">
+        </div>
+        
+        <div class="company-logo">
+            <img src="{% static 'images/imgplacement2.png' %}" alt="Microsoft">
+        </div>
+
+        <div class="company-logo">
+            <img src="{% static 'images/imgplacement3.png' %}" alt="TCS">
+        </div>
+
+        <div class="company-logo">
+            <img src="{% static 'images/imgplacement4.png' %}" alt="Amazon">
+        </div>
+
+        <div class="company-logo">
+            <img src="{% static 'images/imgplacement5.png' %}" alt="Infosys">
+        </div>
+
+    </div>
+</section>
+{% include 'footer.html' %}
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

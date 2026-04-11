@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Registration | Vikas Education</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body style="background: #f0f2f5;">
+
+
+<nav class="navbar">
+    <div class="logo">Vikas Education DL</div>
+    
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+
+    <ul class="nav-links" id="nav-list">
+        <li><a href="{% url 'landing'%}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'students'%}">Students</a></li>
+        <li><a href="{% url 'events' %}">Events</a></li>
+        <li><a href="{% url 'landing' %}#placements">Placements</a></li>
+        <li><a href="{% url 'careers' %}">Careers</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+        <li><a href="{% url 'lms_login' %}" target="_blank">LMS Login</a></li>
+        <li><a href="{% url 'registration' %}" class="btn-admission">Admission</a></li>
+    </ul>
+</nav>
+
+
+    <div class="reg-wrapper">
+    <div class="reg-container">
+        <h2>Student Registration Form</h2>
+        
+        <form id="regForm" action="{% url 'registration' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-row">
+                <input type="text" placeholder="First Name" required class="form-input">
+                <input type="text" placeholder="Middle Name" class="form-input">
+                <input type="text" placeholder="Last Name" required class="form-input">
+            </div>
+
+            <div class="form-row">
+                <input type="tel" placeholder="Contact Number" required class="form-input">
+                <input type="email" placeholder="Email Address" required class="form-input">
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #555;">Select Course:</label>
+                <select required class="form-select">
+                    <option value="">-- Choose a Course --</option>
+                    <option value="bca">BCA (Bachelor of Computer Applications)</option>
+                    <option value="btech">B.Tech (Computer Science)</option>
+                    <option value="mca">MCA (Master of Computer Applications)</option>
+                    <option value="bsc">B.Sc (Information Technology)</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <input type="password" placeholder="Create Password" required class="form-input">
+                <input type="password" placeholder="Confirm Password" required class="form-input">
+            </div>
+
+            <button type="button" onclick="showPaymentModal()" class="btn-register">
+                Register & Pay Admission Fees
+            </button>
+        </form>
+    </div>
+
+    <div class="reg-sidebar">
+        <div class="manual-box">
+            <h3 style="margin-top: 0; display: flex; align-items: center; gap: 10px;">
+                📖 Admission Manual
+            </h3>
+            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 10px;">Steps to apply online:</p>
+            <ol style="font-size: 0.85rem; padding-left: 20px; line-height: 1.8;">
+                <li>Fill your personal details (Name, Contact, Email).</li>
+                <li>Select your preferred <b>Course</b> from the list.</li>
+                <li>Create a strong password for your <b>LMS Login</b>.</li>
+                <li>Click on 'Register' to submit your application.</li>
+                <li>After approval, you can login to LMS for further process.</li>
+            </ol>
+            <div style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #ffeeba; font-size: 0.8rem;">
+                * For any query, call: <b>+91 98765 43210</b>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% load static %}
+<script src="{% static 'js/script.js' %}"></script>
+{% include 'footer.html' %}
+</body>
+</html>

@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | Detailed Job Openings</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body style="background-color: #f8f9fa;">
+
+
+<nav class="navbar">
+    <div class="logo">Vikas Education DL</div>
+    
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+
+    <ul class="nav-links" id="nav-list">
+        <li><a href="{% url 'landing'%}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'students'%}">Students</a></li>
+        <li><a href="{% url 'events' %}">Events</a></li>
+        <li><a href="{% url 'landing' %}#placements">Placements</a></li>
+        <li><a href="{% url 'careers' %}">Careers</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+        <li><a href="{% url 'lms_login' %}" target="_blank">LMS Login</a></li>
+        <li><a href="{% url 'registration' %}" class="btn-admission">Admission</a></li>
+    </ul>
+</nav>
+
+
+    <header style="padding: 60px 10%; background: #2c3e50; color: white; text-align: center;">
+        <h1>Work With Us</h1>
+        <p>Explore full-time roles, internships, and faculty positions.</p>
+    </header>
+
+    <section class="careers-container">
+        
+        <div class="job-detail-card tech-border">
+            <div class="job-header">
+                <div class="job-title-group">
+                    <h2>Junior Web Developer</h2>
+                    <span class="badge blue-badge">IT DEPARTMENT</span>
+                </div>
+                <div class="job-meta">
+                    <p class="salary">Salary: ₹25,000 - ₹35,000</p>
+                    <p class="type">Full-Time | Remote Available</p>
+                </div>
+            </div>
+            <hr>
+            <h4>Requirements:</h4>
+            <ul>
+                <li>Proficiency in HTML5, CSS3, and JavaScript (ES6+).</li>
+                <li>Basic knowledge of Python & Django is a plus.</li>
+                <li>Ability to build responsive layouts.</li>
+            </ul>
+            <button class="btn-apply btn-blue">Apply For This Role</button>
+        </div>
+
+        <div class="job-detail-card academic-border">
+            <div class="job-header">
+                <div class="job-title-group">
+                    <h2>Assistant Professor (Computer Science)</h2>
+                    <span class="badge red-badge">ACADEMIC</span>
+                </div>
+                <div class="job-meta">
+                    <p class="salary">Salary: Competitive (As per UGC)</p>
+                    <p class="type">Full-Time | On Campus</p>
+                </div>
+            </div>
+            <hr>
+            <h4>Eligibility:</h4>
+            <ul>
+                <li>M.Tech or Ph.D. in Computer Science.</li>
+                <li>Minimum 2 years of teaching experience.</li>
+                <li>Good research publication record.</li>
+            </ul>
+            <button class="btn-apply btn-red">Submit Resume</button>
+        </div>
+
+    </section>
+{% include 'footer.html' %}
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
