@@ -37,39 +37,41 @@
     <div class="reg-container">
         <h2>Student Registration Form</h2>
         
-        <form id="regForm" action="{% url 'registration' %}" method="POST">
-            {% csrf_token %}
-            <div class="form-row">
-                <input type="text" placeholder="First Name" required class="form-input">
-                <input type="text" placeholder="Middle Name" class="form-input">
-                <input type="text" placeholder="Last Name" required class="form-input">
-            </div>
+       <form id="regForm" action="{% url 'registration' %}" method="POST">
+    {% csrf_token %}
+    <div class="form-row">
+        <input type="text" id="firstName" name="first_name" placeholder="First Name" required class="form-input">
+        <input type="text" id="middleName" name="middle_name" placeholder="Middle Name" class="form-input">
+        <input type="text" id="lastName" name="last_name" placeholder="Last Name" required class="form-input">
+    </div>
 
-            <div class="form-row">
-                <input type="tel" placeholder="Contact Number" required class="form-input">
-                <input type="email" placeholder="Email Address" required class="form-input">
-            </div>
+    <div class="form-row">
+        <input type="tel" id="regPhone" name="phone" placeholder="Contact Number" 
+               pattern="[0-9]{10}" title="Please enter 10 digit phone number" required class="form-input" minlength="10" maxlength="10">
+        <input type="email" id="regEmail" name="email" placeholder="Email Address" required class="form-input">
+    </div>
 
-            <div style="margin-bottom: 20px;">
-                <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #555;">Select Course:</label>
-                <select required class="form-select">
-                    <option value="">-- Choose a Course --</option>
-                    <option value="bca">BCA (Bachelor of Computer Applications)</option>
-                    <option value="btech">B.Tech (Computer Science)</option>
-                    <option value="mca">MCA (Master of Computer Applications)</option>
-                    <option value="bsc">B.Sc (Information Technology)</option>
-                </select>
-            </div>
+    <div style="margin-bottom: 20px;">
+        <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #555;">Select Course:</label>
+        <select id="courseSelect" required class="form-select">
+            <option value="">-- Choose a Course --</option>
+            <option value="bca">BCA (Bachelor of Computer Applications)</option>
+            <option value="btech">B.Tech (Computer Science)</option>
+            <option value="mca">MCA (Master of Computer Applications)</option>
+            <option value="bsc">B.Sc (Information Technology)</option>
+        </select>
+    </div>
 
-            <div class="form-row">
-                <input type="password" placeholder="Create Password" required class="form-input">
-                <input type="password" placeholder="Confirm Password" required class="form-input">
-            </div>
+    <div class="form-row">
+        <input type="password" id="createPass" placeholder="Create Password" title="Min 8 chas, must include Letter, Digit, and Special Symbol. No spaces." required class="form-input">
+        <input type="password" id="confirmPass" placeholder="Confirm Password" required class="form-input">
+    </div>
 
-            <button type="button" onclick="showPaymentModal()" class="btn-register">
-                Register & Pay Admission Fees
-            </button>
-        </form>
+    <button type="button" onclick="validateRegistration()" class="btn-register">
+        Register & Pay Admission Fees
+    </button>
+
+</form>
     </div>
 
     <div class="reg-sidebar">
@@ -88,6 +90,27 @@
             <div style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #ffeeba; font-size: 0.8rem;">
                 * For any query, call: <b>+91 98765 43210</b>
             </div>
+        </div>
+    </div>
+</div>
+<div id="paymentModal" class="payment-modal">
+    <div class="payment-card" id="modalContent">
+        <div id="paymentFormUI">
+            <h3>Payment Details</h3>
+            <input type="text" id="payFullName" placeholder="Enter Full Name" class="form-input" style="margin-bottom:15px;" required>
+            <input type="email" id="payEmail" placeholder="Enter Payment ID (Email)" class="form-input" style="margin-bottom:15px;" required>
+            <button type="button" onclick="processRegistrationPayment()" class="btn-register" style="background:#27ae60;">
+                Pay Fees
+            </button>
+            <button type="button" onclick="closeModal()" style="background:none; border:none; color:grey; margin-top:10px; cursor:pointer;">Cancel</button>
+        </div>
+
+        <div id="successUI" style="display:none;">
+            <div class="tick-icon">✔</div>
+            <p class="success-msg">Payment Successfully Done!</p>
+            <hr style="margin:20px 0;">
+            <p style="color:#2c3e50; font-weight:bold;">Your Registration is Completed!</p>
+            <p style="font-size:0.8rem; color:gray;">Redirecting to form...</p>
         </div>
     </div>
 </div>

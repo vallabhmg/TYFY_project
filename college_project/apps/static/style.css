@@ -155,16 +155,7 @@ body {
     .hero-buttons { justify-content: center; }
     .career-mini-box { width: 100%; max-width: 100%; height: auto; }
 }
-/* 
-@media (max-width: 768px) {
-    .navbar { flex-direction: column; }
-    .nav-links { 
-        margin-top: 15px;
-        flex-wrap: wrap; 
-        justify-content: center;
-        font-size: 0.8rem;
-    }
-} */
+
 
 /* Hamburger Icon ki styling */
 .menu-toggle {
@@ -932,7 +923,7 @@ body {
 
 .quick-links li a:hover {
     color: #3498db;
-    padding-left: 10px; /* Chota sa slide effect */
+    padding-left: 10px;
     font-weight: 600;
 }
 
@@ -1368,6 +1359,11 @@ body {
 }
 
 /* --- Admission Form Styling --- */
+.addmission-input{
+    max-width:100%;
+    display:block;
+}
+
 .fees-container {
     padding:15px;
 }
@@ -1495,6 +1491,220 @@ body {
 .form-header + .grid-2-col {
     margin-top: 0; 
     border-top: none; /* Header ke sath chipka rahega */
+}
+
+/* new one in adddmission form features*/
+/* Payment Modal Styling */
+.payment-modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7); /* Background dhundla karne ke liye */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.payment-details-box {
+    background: white;
+    width: 400px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.payment-details-box label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Disabled state for sections */
+.section-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    filter: grayscale(1);
+}
+
+/* Success state jab section submit ho jaye */
+.section-success {
+    border: 2px solid #27ae60 !important;
+    background: #f1fcf4 !important;
+    position:relative;
+}
+
+.section-success .form-header {
+    background: #27ae60 !important;
+}
+
+.section-success .form-header::after{
+   content: " ✔ Verified";
+    float: right;
+    font-size: 0.8rem;
+}
+
+/* Section transitions */
+.form-side > div {
+    transition: all 0.4s ease;
+}
+
+/* Custom button for internal section submission */
+.btn-next {
+    background: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Ensure payment buttons stack on all screens as per your sketch */
+#onlinePayGroup {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.btn-pay {
+    width: 100%; /* Full width stack */
+    margin-bottom: 5px;
+}
+
+/* Payment Modal Background */
+.payment-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center; align-items: center;
+    z-index: 2000;
+}
+
+.payment-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%; max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.payment-card h3 { margin-bottom: 20px; color: #2c3e50; border-bottom: 2px solid #27ae60; padding-bottom: 10px; }
+
+/* Success State Styles */
+.success-msg { color: #27ae60; font-weight: bold; font-size: 1.2rem; }
+.tick-icon { font-size: 50px; color: #27ae60; margin-bottom: 10px; }
+
+/* --- Global Container Fix --- */
+.fees-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* --- Layout Optimization --- */
+.fees-layout {
+    display: flex;
+    flex-wrap: wrap; /* Important for responsiveness */
+    gap: 20px;
+}
+
+.form-side {
+    flex: 1 1 650px; /* Minimum width 650px before wrapping */
+}
+
+.fees-card {
+    flex: 1 1 300px; /* Card will wrap below on mobile */
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+}
+
+/* --- Input Grid Fix --- */
+.grid-2-col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+/* --- Media Queries for Mobile (768px and below) --- */
+@media (max-width: 768px) {
+    .grid-2-col {
+        grid-template-columns: 1fr !important;
+        gap: 10px;
+        padding:10px;
+    }
+
+    .fees-container{
+        padding:5px;
+    }
+
+    /* All inputs to take full width */
+    .admission-input{
+        width:100% !important;
+        box-sizing: border-box;
+        grid-column:span 1 !important;
+        margin-bottom:5px;
+    } 
+
+    #studentName, 
+    #studentAddress {
+        grid-column: span 1 !important;
+    }
+
+    .grid-2-col div{
+        width:100%;
+    }
+
+    .grid-2-col div[style*="text-align:right"]{
+        text-align: center !important;
+        grid-column:span 1 !important;
+    }
+
+    .fees-card {
+        margin-top:20px;
+        width:100%;
+        box-sizing:border-box;
+    }
+
+    .form-side {
+        order: 1;
+    }
+
+    /* Modals should be more flexible on mobile */
+    .payment-details-box {
+        width: 95%;
+        margin: 10px;
+        padding: 15px;
+    }
+
+    /* Stack buttons vertically */
+    .pay-buttons {
+        flex-direction: column;
+    }
+
+    .btn-pay {
+        width: 100%;
+    }
+
+    .btn-next{
+        width:100%;
+        text-align: center;
+    }
+}
+
+/* --- Touch optimization --- */
+input, button {
+    min-height: 44px; /* Better for mobile touch */
 }
 
 /* --- Change Password Page Styling --- */
@@ -1707,3 +1917,116 @@ body {
     background: #34495e;
     color: #3498db !important;
 }
+
+/* --- Global Footer Styling --- */
+.main-footer {
+    background: #1a252f;
+    color: #ecf0f1;
+    padding: 60px 10% 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+/* Brand & Typography */
+.footer-brand {
+    color: #3498db;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.footer-desc, .footer-contact {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #bdc3c7;
+}
+
+.footer-heading {
+    margin-bottom: 20px;
+    border-bottom: 2px solid #3498db;
+    display: inline-block;
+    padding-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+/* --- Hover Effects for Links --- */
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li a {
+    color: #bdc3c7;
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 2;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.footer-links li a:hover {
+    color: #3498db;
+    transform: translateX(8px); /* Halka sa right move hoga */
+}
+
+/* --- Social Icons Hover --- */
+.social-icons-footer {
+    display: flex;
+    gap: 15px;
+    font-size: 1.5rem;
+}
+
+.social-icon {
+    text-decoration: none;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px) scale(1.2); /* Upar uthega aur thoda bada hoga */
+    filter: brightness(1.2);
+}
+
+/* --- Footer Bottom --- */
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #34495e;
+    padding-top: 20px;
+    font-size: 0.8rem;
+    color: #7f8c8d;
+}
+
+.dev-by {
+    color: #bdc3c7;
+    font-weight: 500;
+}
+
+/* --- Responsive Design (Mobile) --- */
+@media (max-width: 768px) {
+    .main-footer {
+        padding: 40px 5% 20px;
+        text-align: center; /* Mobile par center alignment zyada achi lagti hai */
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr; /* Sab kuch ek line mein aa jayega */
+        gap: 30px;
+    }
+
+    .footer-heading {
+        margin-bottom: 15px;
+    }
+
+    .social-icons-footer {
+        justify-content: center;
+    }
+
+    .footer-links li a:hover {
+        transform: scale(1.1); /* Mobile par sideways move ki jagah zoom better hai */
+    }
+}
+

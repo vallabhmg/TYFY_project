@@ -1,50 +1,126 @@
 <div class="fees-container">
     <h2 style="text-align: center; color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Student Admission Form</h2>
 
-    <div class="fees-layout">
-        <div class="form-side">
-            
-            <h4 class="form-header">Student Details</h4>
-            <div class="grid-2-col">
-                <input type="text" placeholder="Name of Student" class="admission-input" style="grid-column: span 2;">
-                <input type="text" placeholder="Address" class="admission-input" style="grid-column: span 2;">
-                <input type="text" placeholder="Mobile No." class="admission-input">
-                <input type="text" placeholder="Parent's Mobile No." class="admission-input">
-                <input type="email" placeholder="Email ID" class="admission-input">
-                <input type="text" placeholder="Adhaar Card No." class="admission-input">
-            </div>
-
-            <h4 class="form-header">Document Details (Upload)</h4>
-            <div class="grid-2-col">
-                <div><label>Photo:</label> <input type="file" class="admission-input"></div>
-                <div><label>Signature:</label> <input type="file" class="admission-input"></div>
-                <div><label>10th Marksheet:</label> <input type="file" class="admission-input"></div>
-                <div><label>12th Marksheet:</label> <input type="file" class="admission-input"></div>
-            </div>
-
-            <h4 class="form-header payment-header">Payment Details</h4>
-            <div style="padding: 15px;">
-                <p style="margin-bottom: 15px; font-weight: 600;">Select Mode: 
-                    <label style="margin-right: 10px;"><input type="radio" name="p"> Online</label> 
-                    <label><input type="radio" name="p"> Offline</label>
-                </p>
-                <div class="pay-buttons" style="display: flex; gap: 10px;">
-                    <button onclick="processPayment('University')" class="btn-pay" style="background: #8e44ad;">Pay University Fees (₹2000)</button>
-                    <button onclick="processPayment('Tuition')" class="btn-pay" style="background: #2980b9;">Pay Tuition Fees (₹5000)</button>
+    <form id="admissionForm">
+         <div class="fees-layout">
+            <div class="form-side">
+                <div id="sec-student">
+                <h4 class="form-header">Student Details</h4>
+                <div class="grid-2-col">
+                    <input type="text" id="studentName" placeholder=" Enter Full Name of Student" class="admission-input" style="grid-column: span 2;" required>
+                    <input type="text" id="studentAddress" placeholder="Address (Only , . - allowed)" class="admission-input" style="grid-column: span 2;" required>
+                    <input type="text" id="studentMobile" placeholder="Enter Mobile No" class="admission-input" maxlength="10" required>
+                    <input type="text" id="parentMobile" placeholder="Parent's Mobile No" class="admission-input" minlength="10" maxlength="10" required>
+                    <input type="email" id="studentEmail" placeholder="Email ID" class="admission-input" required>
+                    <input type="text" id="aadharNo" placeholder="Enter Student Adhaar Card No." class="admission-input" maxlength="12" required>
+                    <div style="grid-column: span 2; text-align:right;">
+                        <button type="button" class="btn-next" onclick="submitStudentDetails()">
+                            Submit Student Details
+                        </button>
+                    </div>
+                    </div>
                 </div>
+<div id="sec-docs" class="section-disabled">
+                <h4 class="form-header">Document Details (Upload)</h4>
+                <div class="grid-2-col">
+            <div><label>Photo:</label> <input type="file" class="admission-input" required></div>
+            <div><label>Signature:</label> <input type="file" class="admission-input" required></div>
+            <div><label>10th Marksheet:</label> <input type="file" class="admission-input" required></div>
+            <div><label>12th Marksheet:</label> <input type="file" class="admission-input" required></div>
+            <div style="grid-column: span 2; text-align:right;">
+                <button type="button" class="btn-next" onclick="submitDocDetails()">
+                    Verify Documents
+                </button>
             </div>
+            </div>
+                </div>
+   <div id="sec-payment" class="section-disabled">
+    <h4 class="form-header payment-header">Payment Details</h4>
+    <div style="padding: 15px">
+        <p style="margin-bottom: 15px; font-weight: 600;">Select Mode: 
+            <label style="margin-right: 10px;">
+                <input type="radio" name="paymentMode" value="online" checked onclick="togglePaymentButtons('online')"> Online
+            </label> 
+            <label>
+                <input type="radio" name="paymentMode" value="offline" onclick="togglePaymentButtons('offline')"> Offline
+            </label>
+        </p>
+        
+        <div id="onlinePayGroup" class="pay-buttons" style="display: flex; flex-direction: column; gap: 10px;">
+            <button type="button" onclick="handleAdmissionSubmit('University')" id="btnUniv" class="btn-pay" style="background: #8e44ad;">
+                Pay University Fees (₹2000)
+            </button>
+            
+            <button type="button" onclick="handleAdmissionSubmit('Tuition')" id="btnTuition" class="btn-pay" style="background: #2980b9; opacity: 0.5; cursor: not-allowed;" disabled>
+                Pay Tuition Fees (₹5000)
+            </button>
         </div>
 
-        <div class="fees-card">
-            <h3 style="margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px; color: #34495e;">Fees Structure</h3>
-            <div style="margin-top: 15px; font-size: 1rem;">
-                <p style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span>Tuition Fee:</span> <b>₹5000</b></p>
-                <p style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span>Exam Fee:</span> <b>₹2000</b></p>
-                <p style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span>Library Fee:</span> <b>₹500</b></p>
-                <hr style="border: 0; border-top: 1px solid #ddd; margin: 15px 0;">
-                <h2 style="display: flex; justify-content: space-between; color: #e74c3c;"><span>Total:</span> <span>₹7500</span></h2>
-            </div>
-            <p style="font-size: 0.8rem; color: #888; margin-top: 15px; text-align: center;">* GST might be applicable on online payments.</p>
+        <div id="offlineSubmitGroup" style="display: none; margin-top: 10px;">
+            <button type="button" onclick="handleAdmissionSubmit('Offline')" class="btn-pay" style="background: #27ae60; width: 100%;">Submit Admission Details</button>
         </div>
     </div>
 </div>
+            </div>
+<!-- changed up -->
+            <div class="fees-card">
+                <h3 style="margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px; color: #34495e;">Fees Structure</h3>
+                <div style="margin-top: 15px; font-size: 1rem;">
+                    <p style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span>Tuition Fee:</span> <b>₹5000</b></p>
+                    <p style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span>Exam Fee:</span> <b>₹2000</b></p>
+                    <p style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span>Library Fee:</span> <b>₹500</b></p>
+                    <hr style="border: 0; border-top: 1px solid #ddd; margin: 15px 0;">
+                    <h2 style="display: flex; justify-content: space-between; color: #e74c3c;"><span>Total:</span> <span>₹7500</span></h2>
+                </div>
+                <p style="font-size: 0.8rem; color: #888; margin-top: 15px; text-align: center;">* GST might be applicable on online payments.</p>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="paymentPopupModal" class="payment-modal-overlay" style="display: none;">
+    <div class="payment-details-box">
+        <h3 style="text-align: center; color: #2c3e50; border-bottom: 2px solid #e67e22; padding-bottom: 10px;">Payment Details</h3>
+        
+        <div style="padding: 20px;">
+            <label>Full Name:</label>
+            <input type="text" id="payFullName" class="admission-input" placeholder="Enter Full Name">
+            
+            <label style="display: block; margin-top: 15px;">Payment ID (Email):</label>
+            <input type="email" id="payEmailID" class="admission-input" placeholder="example@mail.com">
+            
+            <label style="display: block; margin-top: 15px;">Amount:</label>
+            <input type="text" id="payAmount" class="admission-input" readonly style="background: #f0f0f0; font-weight: bold; color: #e74c3c;">
+            
+            <div style="display: flex; gap: 10px; margin-top: 25px;">
+                <button onclick="finalPayProcess()" class="btn-pay" style="background: #27ae60;">Pay Now</button>
+                <button onclick="closePaymentModal()" class="btn-pay" style="background: #e74c3c;">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="receiptModal" class="payment-modal-overlay" style="display: none;">
+    <div class="payment-details-box" id="receiptContent">
+        <h3 style="text-align: center; color: #2c3e50; border-bottom: 2px solid #27ae60; padding-bottom: 10px;">Payment Receipt / Fees Receipt</h3>
+        
+        <div style="padding: 15px; line-height: 1.8;">
+            <p><strong>Name:</strong> <span id="resName"></span></p>
+            <p><strong>Payment ID:</strong> <span id="resID"></span></p>
+            <p><strong>Amount Paid:</strong> <span id="resAmount" style="color: #e74c3c; font-weight: bold;"></span></p>
+            <p><strong>Date:</strong> <span id="resDate"></span></p>
+            
+            <div style="text-align: center; margin: 15px 0;">
+                <span style="border: 2px solid #27ae60; color: #27ae60; padding: 5px 15px; border-radius: 20px; font-weight: bold; text-transform: uppercase;">✔ Verified</span>
+            </div>
+            
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button type="button" onclick="downloadReceipt()" class="btn-pay" style="background: greenyellow;">Download</button>
+                <button onclick="closeReceipt()" class="btn-pay" style="background: #e74c3c;">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--adding jspdf link-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>

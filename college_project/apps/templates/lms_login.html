@@ -13,11 +13,14 @@
         <h2 style="color: #2c3e50; margin-bottom: 10px;">LMS Portal</h2>
         <p style="color: #7f8c8d; margin-bottom: 30px;">Please login to access your courses</p>
 
-        <form action="{% url 'lms_dashboard' %}" method="GET">
-            <input type="email" placeholder="Email" required class="lms-input">
-            <input type="password" placeholder="Password" required class="lms-input">
-            <button type="submit" class="btn-lms-login">Login</button>
-        </form>
+        <form id="lmsLoginForm" action="{% url 'lms_dashboard' %}" method="GET">
+    <input type="email" id="lmsEmail" placeholder="Email" required class="lms-input">
+    
+    <input type="password" id="lmsPassword" placeholder="Password" 
+           minlength="8" maxlength="16" required class="lms-input">
+    
+    <button type="submit" class="btn-lms-login">Login</button>
+</form>
         
         <p style="margin-top: 20px; font-size: 0.8rem; color: #888;">Forgot password? Contact Admin</p>
     </div>
