@@ -5,118 +5,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admission Registration | Vikas Education</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-</head>
-<body style="background: #f0f2f5;">
-
-
-<nav class="navbar">
-    <div class="logo">Vikas Education DL</div>
     
-    <div class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </div>
+    <!-- Existing CSS -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+ <link rel="stylesheet" href="{% static 'registration.css' %}">
+ <link rel="stylesheet" href="{% static 'footer.css' %}">
+</head>
+<body>
 
-    <ul class="nav-links" id="nav-list">
-        <li><a href="{% url 'landing'%}">Home</a></li>
-        <li><a href="{% url 'about' %}">About</a></li>
-        <li><a href="{% url 'students'%}">Students</a></li>
-        <li><a href="{% url 'events' %}">Events</a></li>
-        <li><a href="{% url 'landing' %}#placements">Placements</a></li>
-        <li><a href="{% url 'careers' %}">Careers</a></li>
-        <li><a href="{% url 'contact' %}">Contact</a></li>
-        <li><a href="{% url 'lms_login' %}" target="_blank">LMS Login</a></li>
-        <li><a href="{% url 'registration' %}" class="btn-admission">Admission</a></li>
-    </ul>
-</nav>
+    <!-- Navbar (same as before) -->
+    <nav class="navbar">
+        <div class="logo">Vikas Education DL</div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-links" id="nav-list">
+            <li><a href="{% url 'landing'%}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'students'%}">Students</a></li>
+            <li><a href="{% url 'events' %}">Events</a></li>
+            <li><a href="{% url 'landing' %}#placements">Placements</a></li>
+            <li><a href="{% url 'careers' %}">Careers</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'lms_login' %}" target="_blank">LMS Login</a></li>
+            <li><a href="{% url 'registration' %}" class="btn-admission">Admission</a></li>
+        </ul>
+    </nav>
 
-
+    <!-- Registration Form -->
     <div class="reg-wrapper">
-    <div class="reg-container">
-        <h2>Student Registration Form</h2>
-        
-       <form id="regForm" action="{% url 'registration' %}" method="POST">
-    {% csrf_token %}
-    <div class="form-row">
-        <input type="text" id="firstName" name="first_name" placeholder="First Name" required class="form-input">
-        <input type="text" id="middleName" name="middle_name" placeholder="Middle Name" class="form-input">
-        <input type="text" id="lastName" name="last_name" placeholder="Last Name" required class="form-input">
-    </div>
+        <div class="reg-container">
+            <h2>Student Registration Form</h2>
+            
+            <form id="regForm" action="{% url 'registration' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-row">
+                    <input type="text" id="firstName" name="first_name" placeholder="First Name" required class="form-input">
+                    <input type="text" id="middleName" name="middle_name" placeholder="Middle Name" class="form-input">
+                    <input type="text" id="lastName" name="last_name" placeholder="Last Name" required class="form-input">
+                </div>
 
-    <div class="form-row">
-        <input type="tel" id="regPhone" name="phone" placeholder="Contact Number" 
-               pattern="[0-9]{10}" title="Please enter 10 digit phone number" required class="form-input" minlength="10" maxlength="10">
-        <input type="email" id="regEmail" name="email" placeholder="Email Address" required class="form-input">
-    </div>
+                <div class="form-row">
+                    <input type="tel" id="regPhone" name="phone" placeholder="Contact Number" 
+                           pattern="[0-9]{10}" title="Please enter 10 digit phone number" 
+                           required class="form-input" minlength="10" maxlength="10">
+                    <input type="email" id="regEmail" name="email" placeholder="Email Address" required class="form-input">
+                </div>
 
-    <div style="margin-bottom: 20px;">
-        <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #555;">Select Course:</label>
-        <select id="courseSelect" required class="form-select">
-            <option value="">-- Choose a Course --</option>
-            <option value="bca">BCA (Bachelor of Computer Applications)</option>
-            <option value="btech">B.Tech (Computer Science)</option>
-            <option value="mca">MCA (Master of Computer Applications)</option>
-            <option value="bsc">B.Sc (Information Technology)</option>
-        </select>
-    </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #555;">Select Course:</label>
+                    <select id="courseSelect" required class="form-select">
+                        <option value="">-- Choose a Course --</option>
+                        <option value="bca">BCA (Bachelor of Computer Applications)</option>
+                        <option value="btech">B.Tech (Computer Science)</option>
+                        <option value="mca">MCA (Master of Computer Applications)</option>
+                        <option value="bsc">B.Sc (Information Technology)</option>
+                    </select>
+                </div>
 
-    <div class="form-row">
-        <input type="password" id="createPass" placeholder="Create Password" title="Min 8 chas, must include Letter, Digit, and Special Symbol. No spaces." required class="form-input">
-        <input type="password" id="confirmPass" placeholder="Confirm Password" required class="form-input">
-    </div>
+                <div class="form-row">
+                    <input type="password" id="createPass" placeholder="Create Password" required class="form-input">
+                    <input type="password" id="confirmPass" placeholder="Confirm Password" required class="form-input">
+                </div>
 
-    <button type="button" onclick="validateRegistration()" class="btn-register">
-        Register & Pay Admission Fees
-    </button>
+                <button type="button" onclick="validateRegistration()" class="btn-register">
+                    Register & Pay Admission Fees
+                </button>
+            </form>
+        </div>
 
-</form>
-    </div>
-
-    <div class="reg-sidebar">
-        <div class="manual-box">
-            <h3 style="margin-top: 0; display: flex; align-items: center; gap: 10px;">
-                📖 Admission Manual
-            </h3>
-            <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 10px;">Steps to apply online:</p>
-            <ol style="font-size: 0.85rem; padding-left: 20px; line-height: 1.8;">
-                <li>Fill your personal details (Name, Contact, Email).</li>
-                <li>Select your preferred <b>Course</b> from the list.</li>
-                <li>Create a strong password for your <b>LMS Login</b>.</li>
-                <li>Click on 'Register' to submit your application.</li>
-                <li>After approval, you can login to LMS for further process.</li>
-            </ol>
-            <div style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #ffeeba; font-size: 0.8rem;">
-                * For any query, call: <b>+91 98765 43210</b>
+        <div class="reg-sidebar">
+            <div class="manual-box">
+                <h3>📖 Admission Manual</h3>
+                <p style="font-size: 0.9rem; font-weight: bold; margin-bottom: 10px;">Steps to apply online:</p>
+                <ol>
+                    <li>Fill your personal details (Name, Contact, Email).</li>
+                    <li>Select your preferred <b>Course</b> from the list.</li>
+                    <li>Create a strong password for your <b>LMS Login</b>.</li>
+                    <li>Click on 'Register' to submit your application.</li>
+                    <li>After approval, you can login to LMS for further process.</li>
+                </ol>
+                <div style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #ffeeba; font-size: 0.8rem;">
+                    * For any query, call: <b>+91 98765 43210</b>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div id="paymentModal" class="payment-modal">
-    <div class="payment-card" id="modalContent">
-        <div id="paymentFormUI">
-            <h3>Payment Details</h3>
-            <input type="text" id="payFullName" placeholder="Enter Full Name" class="form-input" style="margin-bottom:15px;" required>
-            <input type="email" id="payEmail" placeholder="Enter Payment ID (Email)" class="form-input" style="margin-bottom:15px;" required>
-            <button type="button" onclick="processRegistrationPayment()" class="btn-register" style="background:#27ae60;">
-                Pay Fees
-            </button>
-            <button type="button" onclick="closeModal()" style="background:none; border:none; color:grey; margin-top:10px; cursor:pointer;">Cancel</button>
-        </div>
 
-        <div id="successUI" style="display:none;">
-            <div class="tick-icon">✔</div>
-            <p class="success-msg">Payment Successfully Done!</p>
-            <hr style="margin:20px 0;">
-            <p style="color:#2c3e50; font-weight:bold;">Your Registration is Completed!</p>
-            <p style="font-size:0.8rem; color:gray;">Redirecting to form...</p>
-        </div>
-    </div>
-</div>
-
-{% load static %}
-<script src="{% static 'js/script.js' %}"></script>
 {% include 'footer.html' %}
+<script src="{% static 'js/script.js' %}"></script>
+ <script src="{% static 'js/registration.js' %}"></script>
 </body>
 </html>

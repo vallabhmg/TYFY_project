@@ -1,0 +1,135 @@
+/* ====================== REGISTRATION PAGE STYLES ====================== */
+
+.reg-wrapper {
+    display: flex;
+    padding: 40px 8%;
+    gap: 30px;
+    flex-wrap: wrap;
+    background: #f0f2f5;
+    min-height: calc(100vh - 140px); /* Adjust according to navbar + footer */
+}
+
+.reg-container {
+    flex: 2;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    min-width: 300px;
+}
+
+.reg-container h2 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+/* Form Inputs */
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.form-input, .form-select {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.form-input:focus, .form-select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
+}
+
+/* Register Button */
+.btn-register {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-register:hover {
+    background: #219150;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+}
+
+/* Sidebar */
+.reg-sidebar {
+    flex: 1;
+    min-width: 300px;
+}
+
+.manual-box {
+    background: #fff3cd;
+    border: 1px solid #ffeeba;
+    padding: 25px;
+    border-radius: 10px;
+    color: #856404;
+}
+
+.manual-box h3 {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #856404;
+}
+
+.manual-box ol {
+    padding-left: 20px;
+    line-height: 1.8;
+    font-size: 0.9rem;
+}
+
+.manual-box li {
+    margin-bottom: 8px;
+}
+
+/* ====================== REGISTRATION PAGE MOBILE RESPONSIVENESS ====================== */
+
+@media (max-width: 768px) {
+    .reg-wrapper {
+        padding: 20px 5%;
+        flex-direction: column;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .reg-container {
+        padding: 30px 25px;
+    }
+
+    .reg-sidebar {
+        order: -1; /* Sidebar upar dikhega mobile par */
+    }
+}
+
+@media (max-width: 480px) {
+    .reg-container {
+        padding: 25px 20px;
+    }
+
+    .btn-register {
+        padding: 14px;
+        font-size: 1rem;
+    }
+}

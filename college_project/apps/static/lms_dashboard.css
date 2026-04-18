@@ -1,0 +1,258 @@
+/* ====================== LMS DASHBOARD STYLES ====================== */
+
+.dashboard-body {
+    background: #f4f7f6;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Mobile Top Navigation */
+.mobile-nav {
+    background: #2c3e50;
+    padding: 12px 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1001;
+    box-sizing: border-box;
+}
+
+.mobile-nav h3 {
+    margin: 0;
+    color: white;
+    font-size: 1.1rem;
+}
+
+#menu-toggle {
+    font-size: 1.8rem;
+    cursor: pointer;
+    background: #34495e;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+#menu-toggle:hover {
+    background: #3498db;
+}
+
+/* Sidebar */
+#sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #2c3e50;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: 0.3s;
+    z-index: 1000;
+    color: white;
+    overflow-y: auto;
+}
+
+#sidebar .sidebar-logo h2 {
+    padding: 20px;
+    margin: 0;
+    text-align: center;
+    border-bottom: 1px solid #34495e;
+    font-size: 1.4rem;
+}
+
+/* Menu Items */
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    padding: 15px 25px;
+    cursor: pointer;
+    color: #ecf0f1;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.menu-item:hover {
+    background: #34495e;
+    color: #3498db;
+    padding-left: 35px;
+}
+
+.menu-item.active {
+    background: #3498db;
+    color: white;
+}
+
+/* Dropdowns */
+#study-dropdown, #settings-dropdown {
+    display: none;
+    list-style: none;
+    padding: 0;
+    background: #34495e;
+}
+
+#study-dropdown li, #settings-dropdown li {
+    padding: 12px 40px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #bdc3c7;
+    border-bottom: 1px solid #2c3e50;
+}
+
+#study-dropdown li:hover, #settings-dropdown li:hover {
+    background: #2c3e50;
+    color: white;
+}
+
+/* Main Content Area */
+#main-content-area {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    background: #f4f7f6;
+    transition: 0.3s;
+}
+
+/* Top Header Bar */
+#main-content-area > div:first-child {
+    background: white;
+    padding: 20px 40px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#main-content-area h2 {
+    margin: 0;
+    color: #2c3e50;
+}
+
+/* Logout Button */
+.btn-logout {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.btn-logout:hover {
+    background: #ff4757;
+    transform: scale(1.08);
+    box-shadow: 0 0 8px rgba(231, 76, 60, 0.6);
+}
+
+/* Section Content */
+#section-dashboard {
+    display: block;
+}
+
+#section-dashboard > div {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+/* Placeholder Banner */
+#section-dashboard > div > div:first-child {
+    background: white;
+    height: 400px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 1.1rem;
+}
+
+/* Attendance Box */
+#section-dashboard > div > div:last-child {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* ====================== LMS DASHBOARD MOBILE RESPONSIVENESS ====================== */
+
+@media (max-width: 992px) {
+    #sidebar {
+        width: 240px;
+    }
+    #main-content-area {
+        margin-left: 240px;
+        width: calc(100% - 240px);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .mobile-nav {
+        display: flex !important;
+    }
+
+    #sidebar {
+        left: -280px;
+        width: 260px;   /*   new Added */
+        transition: left 0.4s ease;
+    }
+
+    #sidebar.active {
+        left: 0;
+    }
+
+     #main-content-area {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 60px;
+        padding: 15px;
+    }  
+#main-content-area > div:first-child {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    #section-dashboard > div {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    #section-dashboard > div > div:first-child,
+    #section-dashboard > div > div:last-child {
+        height: auto;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-nav h3 {
+        font-size: 0.9rem;
+    }
+    
+    .btn-logout {
+        width: 100%;
+        margin-top: 5px;
+    }
+}

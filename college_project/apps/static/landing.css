@@ -1,0 +1,343 @@
+/* ====================== LANDING PAGE CSS ====================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f8f1e5;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* ====================== NAVBAR ====================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: #ffffff;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2c2f7b;
+    white-space: nowrap;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #444;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+.nav-links .btn-admission {
+    background: #e74c3c;
+    color: #fff !important;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: #e74c3c;
+    transform: translateY(-2px);
+}
+
+.nav-links .btn-admission:hover {
+    background: #c0392b;
+    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #2c2f7b;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+/* ====================== HERO SECTION ====================== */
+.hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('https://images.unsplash.com/photo-1541339907198-e08756defe93?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 40px 20px;
+}
+
+.hero-container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 2;
+    text-align: left;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-primary { 
+    background: #3498db; 
+    color: white; 
+}
+
+.btn-secondary { 
+    border: 2px solid white; 
+    color: white; 
+}
+
+.btn-primary:hover {
+    background: #2980b9;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #333 !important;
+    transform: translateY(-3px);
+}
+
+/* Career Mini Box */
+.career-mini-box {
+    flex: 0.7;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 320px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.career-items {
+    flex: 1;
+    overflow-y: auto;
+    font-size: 0.9rem;
+}
+
+.career-item {
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+}
+
+.career-item b { color: #f1c40f; }
+.career-item a { color: #3498db; text-decoration: none; font-weight: bold; }
+
+.career-item a:hover {
+    color: #f1c40f;
+    text-decoration: underline;
+    padding-left: 5px;
+}
+
+/* ====================== FEATURES SECTION ====================== */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 0 8%;
+    margin-top: -50px;
+    position: relative;
+    z-index: 10;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* ====================== COURSES SECTION ====================== */
+.course-card {
+    background: #fff; 
+    padding: 40px 30px; 
+    border-radius: 20px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+    border: 1px solid #f0f0f0; 
+    transition: all 0.4s ease; 
+    text-align: left;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border-color: #3498db;
+}
+
+/* ====================== PLACEMENTS SECTION ====================== */
+#placements {
+    padding: 60px 10%;
+    background: #fff;
+    text-align: center;
+}
+
+#placements h2 {
+    color: #2c2f7b;
+    margin-bottom: 10px;
+}
+
+.company-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 30px;
+    align-items: center;
+    justify-items: center;
+    margin-top: 30px;
+}
+
+.company-logo {
+    width: 150px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.company-logo img {
+    max-width: 100%;
+    max-height: 80px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.company-logo img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* ====================== ANNOUNCEMENT BAR ====================== */
+.mini-announcement-bar {
+    background: #1a1a1a;
+    color: white;
+    padding: 8px 5%;
+    display: flex;
+    align-items: center;
+}
+
+.scrolling-text {
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.glowing-text {
+    animation: starGlow 1s infinite alternate;
+}
+
+@keyframes starGlow {
+    from { text-shadow: 0 0 5px #3498db; }
+    to { text-shadow: 0 0 55px #2ecc71; }
+}
+
+/* ====================== MOBILE RESPONSIVENESS ====================== */
+@media (max-width: 992px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-content {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .hero-content h1 { font-size: 2.2rem; }
+    .hero-buttons { justify-content: center; }
+    .career-mini-box { width: 100%; max-width: 100%; height: auto; }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: white;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        transition: 0.4s;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        padding-top: 30px;
+        gap: 15px;
+        z-index: 9999;
+    }
+
+    .nav-links.active {
+        right: 0 !important;
+    }
+
+    .navbar {
+        justify-content: space-between;
+    }
+}

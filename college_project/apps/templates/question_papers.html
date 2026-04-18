@@ -1,103 +1,61 @@
-<!-- 
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Papers | Vikas Education</title>
+    
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'question_papers.css' %}">
+</head>
+<body>
 
-
-<div style="padding: 20px; font-family: 'Segoe UI', sans-serif;">
-    <h2 style="color: #2c3e50; margin-bottom: 20px;">📖 Question Papers Repository</h2>
-
-    <div style="margin-bottom: 25px; position: relative;">
-        <input type="text" id="qpSearchInput" onkeyup="filterQPs()" 
-               placeholder="🔍 Search for Textbooks (e.g. Java, Python, SQL)..." 
-               style="width: 100%; padding: 15px 45px 15px 15px; border: 2px solid #3498db; border-radius: 30px; font-size: 1rem; outline: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-    </div>
-
-    <div style="background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; border: 1px solid #eee;">
-        <table style="width: 100%; border-collapse: collapse; text-align: left;">
-            <thead style="background: #2c3e50; color: white;">
-                <tr>
-                    <th style="padding: 15px; width: 10%;">Sr. No.</th>
-                    <th style="padding: 15px; width: 60%;">question-paper Title</th>
-                    <th style="padding: 15px; width: 30%; text-align: center;">Action</th>
-                </tr>
-            </thead>
-        </table>
-
-        <div style="max-height: 400px; overflow-y: auto;">
-            <table style="width: 100%; border-collapse: collapse; text-align: left;" id="qpTable">
-                <tbody style="color: #34495e;">
-                    <tr style="border-bottom: 1px solid #eee;">
-                        <td style="padding: 15px; width: 10%;">1</td>
-                        <td style="padding: 15px; width: 60%; font-weight: 500;">Question Paper one</td>
-                        <td style="padding: 15px; width: 30%; text-align: center;">
-                            <a href="#" download style="background: #3498db; color: white; padding: 8px 20px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: bold; display: inline-block;">Download ↓</a>
-                        </td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #eee; background: #fafafa;">
-                        <td style="padding: 15px; width: 10%;">2</td>
-                        <td style="padding: 15px; width: 60%; font-weight: 500;">Question Paper two</td>
-                        <td style="padding: 15px; width: 30%; text-align: center;">
-                            <a href="#" download style="background: #3498db; color: white; padding: 8px 20px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: bold; display: inline-block;">Download ↓</a>
-                        </td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #eee;">
-                        <td style="padding: 15px; width: 10%;">3</td>
-                        <td style="padding: 15px; width: 60%; font-weight: 500;">Question Paper Three</td>
-                        <td style="padding: 15px; width: 30%; text-align: center;">
-                            <a href="#" download style="background: #3498db; color: white; padding: 8px 20px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: bold; display: inline-block;">Download ↓</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+<div id="section-question-papers">
+    <div class="qp-container">
+        
+        <div class="qp-header">
+            <h2>📖 Question Papers Repository</h2>
         </div>
-    </div>
-</div> -->
 
+        <div class="qp-search-wrapper">
+            <input type="text" id="qpSearchInput" 
+                   placeholder="🔍 Search for Question Papers (e.g. BCA Sem 3, Java, DBMS)...">
+        </div>
 
-<div style="padding: 20px; font-family: 'Segoe UI', sans-serif; max-width: 1200px; margin: 0 auto;">
-    <h2 style="color: #2c3e50; margin-bottom: 20px;">📖 Question Papers Repository</h2>
-
-    <div style="margin-bottom: 25px; position: relative;">
-        <input type="text" id="qpSearchInput" onkeyup="filterQPs()" 
-               placeholder="🔍 Search for Question Papers..." 
-               style="width: 100%; padding: 15px 45px 15px 15px; border: 2px solid #3498db; border-radius: 30px; font-size: 1rem; outline: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05); box-sizing: border-box;">
-    </div>
-
-    <div style="background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; border: 1px solid #eee;">
-        <table class="repo-table" style="width: 100%; border-collapse: collapse; text-align: left;">
-            <thead style="background: #2c3e50; color: white;">
-                <tr>
-                    <th style="padding: 15px; width: 10%;">Sr. No.</th>
-                    <th style="padding: 15px; width: 60%;">Question Paper Title</th>
-                    <th style="padding: 15px; width: 30%; text-align: center;">Action</th>
-                </tr>
-            </thead>
-        </table>
-
-        <div style="max-height: 400px; overflow-y: auto;">
-            <table class="repo-table" style="width: 100%; border-collapse: collapse; text-align: left;" id="qpTable">
-                <tbody style="color: #34495e;">
-                    <tr style="border-bottom: 1px solid #eee;">
-                        <td style="padding: 15px; width: 10%;">1</td>
-                        <td style="padding: 15px; width: 60%; font-weight: 500;">Question Paper One</td>
-                        <td style="padding: 15px; width: 30%; text-align: center;">
+        <div class="qp-table-wrapper">
+            <table class="repo-table" id="qpTable">
+                <thead>
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Question Paper Title</th>
+                        <th style="text-align: center;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td class="qp-title">BCA Semester 1 - Computer Fundamentals</td>
+                        <td class="action-cell">
                             <a href="#" download class="btn-download">Download ↓</a>
                         </td>
                     </tr>
-                    <tr style="border-bottom: 1px solid #eee; background: #fafafa;">
-                        <td style="padding: 15px; width: 10%;">2</td>
-                        <td style="padding: 15px; width: 60%; font-weight: 500;">Question Paper Two</td>
-                        <td style="padding: 15px; width: 30%; text-align: center;">
+                    <tr>
+                        <td>2</td>
+                        <td class="qp-title">BCA Semester 3 - Core Java</td>
+                        <td class="action-cell">
                             <a href="#" download class="btn-download">Download ↓</a>
                         </td>
                     </tr>
-                    <tr style="border-bottom: 1px solid #eee;">
-                        <td style="padding: 15px; width: 10%;">3</td>
-                        <td style="padding: 15px; width: 60%; font-weight: 500;">Question Paper Three</td>
-                        <td style="padding: 15px; width: 30%; text-align: center;">
-                            <a href="#" download class="btn-download">Download ↓</a>
-                        </td>
-                    </tr>
+                    <!-- Add more rows as needed -->
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+
+<script src="{% static 'js/script.js' %}"></script>
+<script src="{% static 'js/question_papers.js' %}"></script>
+
+</body>
+</html>

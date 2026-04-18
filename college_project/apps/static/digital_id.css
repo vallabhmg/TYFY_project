@@ -1,0 +1,292 @@
+/* ====================== DIGITAL ID SECTION STYLES ====================== */
+
+#id-portal {
+    padding: 40px 20px;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8f1e5;
+}
+
+/* Login / Verification Box */
+#id-login-box {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    max-width: 100%;
+    text-align: center;
+    border-top: 5px solid #3498db;
+}
+
+#id-login-box h3 {
+    margin-bottom: 25px;
+    color: #2c3e50;
+    font-size: 1.4rem;
+}
+
+
+
+#id-login-box input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#id-login-box input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+    outline: none;
+}
+
+/* Verify Button */
+.btn-verify {
+    width: 100%;
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-verify:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+/* Final ID Card */
+#final-id-card {
+    display: none;
+    text-align: center;
+    width: 100%;
+    max-width: 380px;
+}
+
+
+
+#final-id-card > div {
+    width: 320px;
+    max-width: 100%;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border: 1px solid #eee;
+    margin: 0 auto;
+}
+
+/* ID Card Header */
+#final-id-card > div > div:first-child {
+    background: #2c3e50;
+    color: white;
+    padding: 18px 15px;
+    text-align: center;
+}
+
+#final-id-card h4 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+#final-id-card p {
+    margin: 4px 0 0 0;
+    font-size: 0.75rem;
+    opacity: 0.9;
+}
+
+/* ID Card Body */
+#final-id-card > div > div:nth-child(2) {
+    padding: 25px 20px;
+    text-align: center;
+}
+
+#final-id-card .profile-circle {
+    width: 90px;
+    height: 90px;
+    background: #eee;
+    border-radius: 50%;
+    margin: 0 auto 12px;
+    border: 3px solid #3498db;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+
+#final-id-card h3 {
+    margin: 8px 0 5px 0;
+    color: #2c3e50;
+}
+
+#final-id-card .department {
+    color: #3498db;
+    font-weight: bold;
+    margin: 0 0 15px 0;
+}
+
+#final-id-card hr {
+    margin: 15px 0;
+    border: 0;
+    border-top: 1px dashed #ccc;
+}
+
+#final-id-card p {
+    text-align: left;
+    font-size: 0.92rem;
+    margin: 8px 0;
+}
+
+#final-id-card p b {
+    color: #34495e;
+}
+
+#final-id-card #display-id-val {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* Header */
+.id-card-header {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    padding: 20px 15px;
+    text-align: center;
+}
+
+.id-card-header h4 {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+.id-card-header p {
+    margin: 6px 0 0;
+    font-size: 0.82rem;
+    opacity: 0.9;
+}
+
+/* Body */
+.id-card-body {
+    padding: 30px 25px;
+    text-align: center;
+}
+
+.profile-circle {
+    width: 100px;
+    height: 100px;
+    background: #f0f0f0;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    border: 4px solid #3498db;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#display-id-name {
+    margin: 10px 0 5px;
+    color: #2c3e50;
+    font-size: 1.35rem;
+}
+
+.department {
+    color: #3498db;
+    font-weight: 600;
+    margin-bottom: 18px;
+    font-size: 1.05rem;
+}
+
+.id-card-body hr {
+    border: 0;
+    border-top: 1px dashed #ccc;
+    margin: 18px 0;
+}
+
+.id-card-body p {
+    text-align: left;
+    font-size: 0.98rem;
+    margin: 10px 0;
+}
+
+#display-id-val {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* Verified Footer */
+#final-id-card > div > div:last-child {
+    background: #3498db;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Reset Button */
+#final-id-card button {
+    margin-top: 20px;
+    background: none;
+    border: none;
+    color: #3498db;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+#final-id-card button:hover {
+    text-decoration: underline;
+}
+
+/* ====================== DIGITAL ID MOBILE RESPONSIVENESS ====================== */
+@media (max-width: 768px) {
+    #id-portal {
+        padding: 25px 15px;
+        min-height: 75vh;
+    }
+    
+    .id-verification-box {
+        padding: 30px 20px;
+        max-width: 92%;
+    }
+    
+    .id-card-container {
+        max-width: 300px;
+    }
+    
+    .profile-circle {
+        width: 85px;
+        height: 85px;
+        font-size: 2.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #id-portal {
+        padding: 20px 10px;
+    }
+    
+    .id-verification-box,
+    .id-card-container {
+        max-width: 100%;
+    }
+    
+    .id-card-body {
+        padding: 25px 18px;
+    }
+}
