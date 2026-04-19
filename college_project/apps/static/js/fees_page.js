@@ -151,13 +151,75 @@ function closePaymentModal() {
 }
 
 // Download PDF (Same as your code)
+// async function downloadReceipt() {
+//     const { jsPDF } = window.jspdf;
+//     const doc = new jsPDF();
+//     const name = document.getElementById('resName').innerText;
+//     doc.text("VIKAS EDUCATION - RECEIPT", 105, 20, { align: "center" });
+//     doc.text(`Name: ${name}`, 20, 40);
+//     doc.text(`ID: ${document.getElementById('resID').innerText}`, 20, 50);
+//     doc.text(`Amount: ${document.getElementById('resAmount').innerText}`, 20, 60);
+//     doc.save(`Receipt_${name}.pdf`);
+// }
+
 async function downloadReceipt() {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-    const name = document.getElementById('resName').innerText;
-    doc.text("VIKAS EDUCATION - RECEIPT", 105, 20, { align: "center" });
-    doc.text(`Name: ${name}`, 20, 40);
-    doc.text(`ID: ${document.getElementById('resID').innerText}`, 20, 50);
-    doc.text(`Amount: ${document.getElementById('resAmount').innerText}`, 20, 60);
-    doc.save(`Receipt_${name}.pdf`);
+    try {
+        // Check if library is loaded
+        if (!window.jspdf) {
+            alert("Error: PDF Library not loaded. Please check your internet connection.");
+            return;
+        }
+
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        // Data fetch karna receipt modal se
+        const name = document.getElementById('resName').innerText || "Student";
+        const pid = document.getElementById('resID').innerText || "N/A";
+        const amt = document.getElementById('resAmount').innerText || "0";
+        const date = document.getElementById('resDate').innerText || new Date().toLocaleDateString();
+
+        // --- PDF Design ---
+        doc.setFillColor(245, 245, 245);
+        doc.rect(0, 0, 210, 297, 'F'); // Background color
+
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(22);
+        doc.setTextColor(44, 62, 80); 
+        doc.text("VIKAS EDUCATION", 105, 30, { align: "center" });
+
+        doc.setFontSize(14);
+        doc.setTextColor(39, 174, 96);
+        doc.text("OFFICIAL FEES RECEIPT", 105, 40, { align: "center" });
+
+        doc.setLineWidth(0.5);
+        doc.line(20, 45, 190, 45);
+
+        // Details
+        doc.setFontSize(12);
+        doc.setTextColor(0, 0, 0);
+        doc.setFont("helvetica", "normal");
+
+        let y = 60;
+        doc.text(`Student Name:    ${name}`, 25, y);
+        doc.text(`Transaction ID:  ${pid}`, 25, y + 10);
+        doc.text(`Amount Paid:     ${amt}`, 25, y + 20);
+        doc.text(`Date of Payment: ${date}`, 25, y + 30);
+        doc.text(`Payment Status:  VERIFIED SUCCESSFUL`, 25, y + 40);
+
+        // Border and Footer
+        doc.setDrawColor(39, 174, 96);
+        doc.rect(15, 15, 180, 100); // Ek box banayega receipt ke charo taraf
+
+        doc.setFontSize(10);
+        doc.setTextColor(100);
+        doc.text("This is a system generated document. No signature required.", 105, 105, { align: "center" });
+
+        // Save File
+        doc.save(`Fees_Receipt_${name.replace(/\s+/g, '_')}.pdf`);
+        
+    } catch (error) {
+        console.error("PDF Error:", error);
+        alert("Something went wrong while generating PDF.");
+    }
 }

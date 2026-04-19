@@ -31,6 +31,7 @@
     display: flex;
     gap: 15px;
     margin-bottom: 20px;
+     align-items: flex-start; /* Adding New Updation */
 }
 
 .form-input, .form-select {
@@ -99,6 +100,73 @@
 
 .manual-box li {
     margin-bottom: 8px;
+}
+
+.password-field {
+    position: relative;
+    width: 100%;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+    user-select: none;
+}
+
+.payment-modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.payment-details-box {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    text-align: left;
+}
+
+.admission-input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal-btns {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-pay {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cancel-btn { background: #e74c3c; }
+
+.verified-badge {
+    color: #27ae60;
+    font-weight: bold;
+    margin: 15px 0;
+    font-size: 1.2rem;
 }
 
 /* ====================== REGISTRATION PAGE MOBILE RESPONSIVENESS ====================== */

@@ -66,11 +66,17 @@
                 </div>
 
                 <div class="form-row">
-                    <input type="password" id="createPass" placeholder="Create Password" required class="form-input">
-                    <input type="password" id="confirmPass" placeholder="Confirm Password" required class="form-input">
-                </div>
+    <div class="password-field">
+        <input type="password" id="createPass" name="password" placeholder="Create Password" required class="form-input">
+        <span class="toggle-password" onclick="togglePass('createPass')">👁️</span>
+    </div>
+    <div class="password-field">
+        <input type="password" id="confirmPass" placeholder="Confirm Password" required class="form-input">
+        <span class="toggle-password" onclick="togglePass('confirmPass')">👁️</span>
+    </div>
+</div>
 
-                <button type="button" onclick="validateRegistration()" class="btn-register">
+                <button type="submit" onclick="validateRegistration()" class="btn-register">
                     Register & Pay Admission Fees
                 </button>
             </form>
@@ -93,8 +99,45 @@
             </div>
         </div>
     </div>
+    
+<div id="paymentPopupModal" class="payment-modal-overlay">
+    <div class="payment-details-box">
+        <h3>Payment Details</h3>
+        <div class="modal-content">
+            <label>Full Name:</label>
+            <input type="text" id="payFullName" class="admission-input" placeholder="Enter Full Name">
+            <label>Payment ID (Email):</label>
+            <input type="email" id="payEmailID" class="admission-input" placeholder="example@mail.com">
+            <label>Amount:</label>
+            <input type="text" id="payAmount" class="admission-input" readonly>
+            <div class="modal-btns">
+                <button onclick="finalPayProcess()" class="btn-pay" style="background: #27ae60;">Pay Now</button>
+                <button onclick="closePaymentModal()" class="btn-pay cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="receiptModal" class="payment-modal-overlay">
+    <div class="payment-details-box" id="receiptContent">
+        <h3>Payment Receipt</h3>
+        <div class="receipt-body">
+            <p><strong>Name:</strong> <span id="resName"></span></p>
+            <p><strong>Payment ID:</strong> <span id="resID"></span></p>
+            <p><strong>Amount Paid:</strong> <span id="resAmount"></span></p>
+            <p><strong>Date:</strong> <span id="resDate"></span></p>
+            <div style="text-align:center;"><div class="verified-badge">✔ VERIFIED</div></div>
+            <div class="modal-btns">
+                <button onclick="downloadReceipt()" class="btn-pay" style="background: #27ae60;">Download PDF</button>
+                <button onclick="closeReceipt()" class="btn-pay cancel-btn">Continue</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 {% include 'footer.html' %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="{% static 'js/script.js' %}"></script>
  <script src="{% static 'js/registration.js' %}"></script>
 </body>
