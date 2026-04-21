@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Vikas Education</title>
+    
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'admin_dashboard.css' %}">
+    
+</head>
+<body class="dashboard-body">   
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <h3>Vikas Education LMS - Admin</h3>
+        <div id="menu-toggle">☰</div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="sidebar-logo">
+            <h2>Vikas Education LMS</h2>
+            <p style="text-align:center; font-size:0.9rem; color:#bdc3c7; margin-top:-10px;">Admin Panel</p>
+        </div>
+        
+        <ul class="menu-list">
+            <!-- 1. Attendance -->
+             <li onclick="switchTab('dashboard')" class="menu-item">🏠 Dashboard</li>
+            <li onclick="switchTab('attendance')" class="menu-item">📋 Attendance</li>
+
+            <!-- 2. Offline Fees Tracker -->
+            <li onclick="switchTab('offline-fees')" class="menu-item">💰 Offline Fees Tracker</li>
+
+            <!-- 3. Result -->
+            <li onclick="switchTab('result')" class="menu-item">📊 Result</li>
+
+            <!-- 4. Study Material (Toggle) -->
+            <li onclick="toggleStudyMenu()" class="menu-item toggle-header">
+                <span>📚 Study Material</span>
+                <span id="study-arrow" class="arrow">▼</span>
+            </li>
+            <ul id="study-dropdown" class="dropdown-menu">
+                <li onclick="switchTab('ebook')" class="menu-item">📖 E-book</li>
+                <li onclick="switchTab('question-papers')" class="menu-item">❓ Question Papers</li>
+            </ul>
+
+            <!-- 5. Settings (Toggle) -->
+            <li>
+                <div onclick="toggleSettings()" class="menu-item toggle-header">
+                    <span>⚙️ Settings</span>
+                    <span id="setting-arrow" class="arrow">▼</span>
+                </div>
+                <ul id="settings-dropdown" class="dropdown-menu">
+                    <li onclick="switchTab('change-password')" class="menu-item">🔑 Change Password</li>
+                    <li onclick="logoutUser()" class="menu-item" style="color: #ff7675;">🚪 Log Out</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="main-content-area">
+        <div class="top-header">
+            <h2>Welcome, ABC (Admin)</h2>
+            <button onclick="logoutUser()" class="btn-logout">Logout</button>
+        </div>
+
+        <div class="content-wrapper">
+ <!-- ====================== DASHBOARD SECTION ====================== -->
+
+<div id="section-dashboard">
+
+    <div class="admin-dashboard-container">
+
+        <!-- Left: Form Container (Big White Box) -->
+        <div class="form-column">
+            <div id="dynamic-form-area" style="display: none;"></div>
+
+            <!-- Default Message -->
+            <div id="default-message" class="default-box">
+                <h2>Welcome to Admin Dashboard</h2>
+                <p>Click any card on the right to add News, Courses or Events.</p>
+            </div>
+        </div>
+
+        <!-- Right: 3 Action Cards -->
+        <div class="action-cards-column">
+            <div class="action-card" onclick="showForm('news')">
+                <div class="icon">📰</div>
+                <h3>Add Latest News</h3>
+                <p>Post new announcements or notices</p>
+            </div>
+
+            <div class="action-card" onclick="showForm('courses')">
+                <div class="icon">📚</div>
+                <h3>Add New Courses</h3>
+                <p>Add courses for students</p>
+            </div>
+
+            <div class="action-card" onclick="showForm('events')">
+                <div class="icon">🎉</div>
+                <h3>Add Events</h3>
+                <p>Create upcoming events</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>            <!-- New Admin Sections -->
+            <div id="section-attendance" style="display: none;">
+                {% include 'admin_attendance.html' %}
+            </div>
+
+            <div id="section-offline-fees" style="display: none;">
+                {% include 'admin_offline_fees.html' %}
+            </div>
+
+            <!-- Reuse existing includes where possible -->
+            <div id="section-result" style="display: none;">
+                {% include 'result_page.html' %}
+            </div>
+
+            <div id="section-change-password" style="display: none;">
+               {% include 'change_password.html' %}
+            </div>
+            
+            <div id="section-ebook" style="display: none;">
+              {% include 'ebook.html' %}
+            </div>
+
+            <div id="section-question-papers" style="display: none;">
+              {% include 'question_papers.html' %}
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/admin_dashboard.js' %}"></script>
+
+</body>
+</html>
